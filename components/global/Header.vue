@@ -1,5 +1,8 @@
 <template>
-  <div>Hi from header</div>
+  <div>
+    <img src="~/assets/images/logo.png" alt="" />
+    Hi from header
+  </div>
 </template>
 
 <script setup lang="ts">
