@@ -11,6 +11,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  
   googleFonts:{
     families: {
           Quicksand:true
@@ -18,6 +19,7 @@ export default defineNuxtConfig({
   },
   components: [
     { path: '~/global' },
-    '~/components'
+    '~/components',
+    
   ]
 })
