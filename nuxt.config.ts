@@ -19,6 +19,7 @@ export default defineNuxtConfig({
   },
   components: [
     { path: '~/global' },
+    { path: '~/home' },
     '~/components',
     
   ]

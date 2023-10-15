@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <GlobalHeader />
+  <div class="mt-8">
+    <HomeCategoriesCarousel/>
   </div>
 </template>
 
