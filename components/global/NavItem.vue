@@ -1,10 +1,10 @@
 <template>
   <div class="menu-item--wrapper relative">
     <button
-      @click="toggled = !toggled"
+      @click="indexStore.setToggledMenu(props.label)"
       v-if="hasChildren"
       class="menu-item"
-      :class="{ active: toggled }"
+      :class="{ active: indexStore.toggledMenu === props.label }"
     >
       <span> {{ props.label }} </span>
       <Icon
@@ -19,12 +19,12 @@
     }}</NuxtLink>
     <Transition name="slide-fade">
       <div
-        v-if="toggled"
-        class="menu-item--childrens flex gap-2 flex-col mt-2 lg:absolute lg:top-8 lg:left-0 lg:shadow-md lg:p-4 z-10 bg-white"
+        v-if="indexStore.toggledMenu === props.label"
+        class="menu-item--childrens grid grid-cols-2 gap-2 flex-col mt-2 lg:absolute lg:top-8 lg:left-0 lg:shadow-lg lg:p-4 z-10 bg-white lg:grid lg:grid-cols-4 lg:min-w-[700px] rounded-lg"
       >
         <NuxtLink
           v-for="child in props.children"
-          class="menu-item pl-3 text-gray-500"
+          class="menu-item pl-3 text-gray-500 hover:text-gray-700"
           to="/contact"
         >
           <span>{{ objectKey ? child[objectKey] : child }}</span>
@@ -35,18 +35,37 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, computed, ref } from "vue";
+import { defineProps, computed, onMounted } from "vue";
+import { useIndexStore } from "../../store";
+const indexStore = useIndexStore();
 const props = defineProps<{
-  label: String;
-  objectKey?: String;
-  url?: String;
-  children?: String[];
+  label: string;
+  objectKey?: string;
+  url?: string;
+  children?: string[];
 }>();
 const hasChildren = computed(() => {
   if (!props.children) return false;
   return props.children.length > 0;
 });
-const toggled = ref(false);
+const watchOutsideMenuClick = () => {
+  window.addEventListener("click", (ev) => {
+    const target = ev.target as Element;
+    if (
+      target.classList.contains("menu-item--childrens") ||
+      (target.parentElement &&
+        target.parentElement.classList.contains("menu-item"))
+    ) {
+      return;
+    }
+    if (indexStore.toggledMenu !== "") {
+      indexStore.setToggledMenu("");
+    }
+  });
+};
+onMounted(() => {
+  watchOutsideMenuClick();
+});
 </script>
 
 <style scoped lang="scss">
