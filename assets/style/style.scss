@@ -2,3 +2,16 @@
 * {
     font-family: $font-primary;
 }
+
+.multiselect {
+    @apply bg-gray-100;
+    width: 200px;
+    .multiselect-option {
+        &.is-selected {
+            @apply bg-red-300;
+        }
+    }
+    .multiselect-single-label {
+        padding-right: 20px;
+    }
+}
