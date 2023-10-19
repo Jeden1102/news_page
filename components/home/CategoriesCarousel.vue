@@ -37,18 +37,18 @@ const modules = [Navigation];
 .swiper-button-next,
 .swiper-button-prev {
   @apply bg-gray-100 absolute opacity-100;
-  width: 80px;
+  width: 50px;
   height: 100%;
   top: 0;
   right: 0;
-  transform: translateY(39%);
+  z-index: 1;
   &:hover {
     @apply bg-gray-200;
   }
   &::after {
-    font-size: 1rem;
-    color: black;
-    font-weight: bold;
+    position: absolute;
+    transform: translateY(50%);
+    content: url("/chevron.svg");
   }
 }
 .swiper-button-prev {
@@ -58,15 +58,11 @@ const modules = [Navigation];
     rgba(243, 244, 246, 1),
     rgba(243, 244, 246, 0) 60%
   );
-  -webkit-mask-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(rgba(0, 0, 0, 1)),
-    to(rgba(0, 0, 0, 0))
-  );
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0));
   left: 0;
+  &::after {
+    transform: translateY(40%) rotate(-180deg);
+  }
 }
 .swiper-button-next {
   padding-left: 24px;
@@ -74,13 +70,6 @@ const modules = [Navigation];
     to right,
     rgba(243, 244, 246, 1),
     rgba(243, 244, 246, 0) 60%
-  );
-  -webkit-mask-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(rgba(0, 0, 0, 1)),
-    to(rgba(0, 0, 0, 0))
   );
   mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0));
 }

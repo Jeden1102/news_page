@@ -58,7 +58,7 @@ const { locale } = useI18n();
 const isMobileNavVisible = ref(false);
 const getLanguages = async () => {
   const languages = await axios.get(
-    `${runtimeConfig.public.API_URL}/available/languages`
+    `${runtimeConfig.public.NEWS_API_URL}/available/languages`
   );
   const rawLanguages = languages.data.languages;
   const transformedLanguages = Object.entries(rawLanguages).map(

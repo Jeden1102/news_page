@@ -1,0 +1,52 @@
+<template>
+  <template v-if="newsStore.recent">
+    <div class="flex gap-4 flex-col my-8 hero lg:flex-row">
+      <div class="flex gap-4 flex-col md:flex-row">
+        <ArticleTeaserMain :n="newsStore.recent.data[0]" />
+        <ArticleTeaserMain :n="newsStore.recent.data[1]" />
+      </div>
+      <div class="block max-w-60">
+        <swiper
+          class="max-w-60"
+          :space-between="12"
+          :slidesPerView="1"
+          navigation
+          :modules="modules"
+          :pagination="{
+            dynamicBullets: true,
+            clickable: true,
+          }"
+        >
+          <swiper-slide v-for="n in newsStore.recent.data">
+            <ArticleTeaserMain :n="n" />
+          </swiper-slide>
+        </swiper>
+      </div>
+    </div>
+  </template>
+</template>
+
+<script setup lang="ts">
+import { Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/pagination";
+import { useNewsStore } from "../../store/news";
+const modules = [Navigation, Pagination];
+const newsStore = useNewsStore();
+newsStore.getRecentNews();
+</script>
+
+<style lang="scss">
+.hero {
+  .swiper-wrapper {
+    max-width: 400px;
+  }
+}
+
+.swiper-pagination {
+  .swiper-pagination-bullet {
+    @apply w-4 h-4 bg-gray-500;
+  }
+}
+</style>

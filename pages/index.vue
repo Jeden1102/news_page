@@ -1,6 +1,7 @@
 <template>
-  <div class="mt-8">
-    <HomeCategoriesCarousel/>
+  <div class="mt-8 sm:px-8 md:px-12">
+    <HomeCategoriesCarousel />
+    <ArticleHero />
   </div>
 </template>
 

@@ -8,7 +8,7 @@ export const useRegionsStore = defineStore("regions", {
     async getRegions() {
       const runtimeConfig = useRuntimeConfig();
       const categories = (await useFetch(
-        `${runtimeConfig.public.API_URL}/available/regions`
+        `${runtimeConfig.public.NEWS_API_URL}/available/regions`
       )) as any;
       const transformedRegions = Object.entries(
         categories.data.value.regions

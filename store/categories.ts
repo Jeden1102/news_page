@@ -8,7 +8,7 @@ export const useCategoriesStore = defineStore("categories", {
     async getCategories() {
       const runtimeConfig = useRuntimeConfig();
       const categories = (await useFetch(
-        `${runtimeConfig.public.API_URL}/available/categories`
+        `${runtimeConfig.public.NEWS_API_URL}/available/categories`
       )) as any;
       this.categories = categories.data.value.categories;
     },
