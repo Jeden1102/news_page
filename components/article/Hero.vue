@@ -40,7 +40,29 @@ newsStore.getRecentNews();
 <style lang="scss">
 .hero {
   .swiper-wrapper {
-    max-width: 400px;
+    @apply max-w-[400px] xl:max-w-[500px];
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    background: none;
+    @apply bg-white w-10 h-10 rounded-md top-3 md:top-1/2;
+    -webkit-mask-image: unset;
+    &::after {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 24px;
+      height: 24px;
+    }
+  }
+  .swiper-button-prev {
+    &::after {
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+    @apply left-2;
+  }
+  .swiper-button-next {
+    @apply right-2;
   }
 }
 
