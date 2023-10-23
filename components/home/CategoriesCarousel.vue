@@ -34,6 +34,7 @@ const modules = [Navigation];
     width: fit-content !important;
   }
 }
+
 .swiper-button-next,
 .swiper-button-prev {
   @apply bg-gray-100 absolute opacity-100;

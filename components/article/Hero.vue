@@ -17,7 +17,7 @@
             clickable: true,
           }"
         >
-          <swiper-slide v-for="n in newsStore.recent.data">
+          <swiper-slide v-for="n in slicedNews">
             <ArticleTeaserMain :n="n" />
           </swiper-slide>
         </swiper>
@@ -27,6 +27,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
@@ -35,6 +36,9 @@ import { useNewsStore } from "../../store/news";
 const modules = [Navigation, Pagination];
 const newsStore = useNewsStore();
 newsStore.getRecentNews();
+const slicedNews = computed(() => {
+  return newsStore.recent.data.slice(2);
+});
 </script>
 
 <style lang="scss">
@@ -45,7 +49,7 @@ newsStore.getRecentNews();
   .swiper-button-next,
   .swiper-button-prev {
     background: none;
-    @apply bg-white w-10 h-10 rounded-md top-3 md:top-1/2;
+    @apply bg-white w-10 h-10 rounded-md top-3 md:top-1/2 hover:bg-gray-100 cursor-pointer;
     -webkit-mask-image: unset;
     &::after {
       top: 50%;

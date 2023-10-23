@@ -8,7 +8,7 @@
       <img src="/people.jpg" alt="Stack Overflow logo and icons and such" />
     </object>
     <div
-      class="flex flex-col bg-gray-50 mt-full absolute bottom-2 w-11/12 mx-auto overlay left-1/2 p-4 rounded-lg"
+      class="flex flex-col bg-gray-50 mt-full absolute bottom-3 w-11/12 mx-auto overlay left-1/2 p-4 rounded-lg"
     >
       <h2 class="text-lg font-semibold">{{ n.title }}</h2>
       <p class="text-sm font-light">{{ n.description }}</p>
