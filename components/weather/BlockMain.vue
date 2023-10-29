@@ -1,5 +1,14 @@
 <template>
-    <div>main {{ town }} {{weather}}</div>
+    <div
+        v-if="weather"
+        class="flex flex-col weather__main p-4 rounded-md text-black gap-6 md:p-6 bg-gray-200 mb-6 shadow-lg w-full lg:mb-0"
+    >
+        <WeatherBlockGeneral
+            :weather="weather.list[0]"
+            :town="town"
+            :full="true"
+        />
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -14,6 +23,13 @@ onMounted(async () => {
     const data = await weatherStore.getWeather(props.town, false);
     weather.value = data;
 });
+watch(
+    async () => props.town,
+    async (first) => {
+        const data = await weatherStore.getWeather(props.town, false);
+        weather.value = data;
+    }
+);
 </script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

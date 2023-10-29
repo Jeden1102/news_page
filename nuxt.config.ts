@@ -5,6 +5,8 @@ export default defineNuxtConfig({
     public: {
       NEWS_API_URL: process.env.NEWS_API_URL,
       NEWS_API_KEY: process.env.NEWS_API_KEY,
+      WEATHER_API_KEY: process.env.WEATHER_API_KEY,
+      WEATHER_API_URL: process.env.WEATHER_API_URL,
     },
   },
   modules: [
