@@ -1,7 +1,7 @@
 <template>
   <template v-if="newsStore.recent">
-    <div class="flex gap-4 flex-col my-8 hero lg:flex-row">
-      <div class="flex gap-4 flex-col md:flex-row">
+    <div class="flex gap-4 flex-col my-8 hero lg:flex-row mx-auto">
+      <div class="flex mx-auto gap-4 flex-col md:flex-row">
         <ArticleTeaserMain :n="newsStore.recent.data[0]" />
         <ArticleTeaserMain :n="newsStore.recent.data[1]" />
       </div>

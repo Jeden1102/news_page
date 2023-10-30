@@ -1,5 +1,5 @@
 <template>
-  <div class="categories-carousel bg-gray-100 p-3 rounded-md">
+  <div class="categories-carousel bg-gray-100 p-3 rounded-md mx-auto">
     <swiper
       :space-between="12"
       :slidesPerView="'auto'"

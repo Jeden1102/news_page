@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col md:flex-row items-center gap-3 lg:justify-between pt-4"
+    class="flex flex-col md:flex-row items-center gap-3 lg:justify-between pt-4 mx-auto"
   >
     <div>
       <NuxtLink to="/" class="text-3xl">

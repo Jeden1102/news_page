@@ -1,5 +1,5 @@
 <template>
-  <div class="slider mb-8">
+  <div class="slider mb-8 mx-auto">
     <h2 class="text-2xl relative mb-12">{{ label }}</h2>
     <swiper
       :slides-per-view="1"

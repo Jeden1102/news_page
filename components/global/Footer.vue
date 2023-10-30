@@ -47,6 +47,7 @@ import { computed } from "vue";
 import { useCategoriesStore } from "../../store/categories";
 const categoriesStore = useCategoriesStore();
 const footerCategories = computed(() => {
+  if (!categoriesStore.categories) return;
   return categoriesStore.categories.splice(0, 6);
 });
 </script>
