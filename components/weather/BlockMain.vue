@@ -1,21 +1,22 @@
 <template>
   <div
     v-if="weather"
-    class="flex flex-col weather__main p-4 rounded-md text-black gap-6 md:p-6 bg-white mb-6 shadow-lg w-full lg:mb-0"
+    class="flex flex-col weather__main p-4 rounded-md text-black gap-6 md:p-6 bg-white mb-6 shadow-lg lg:mb-0 w-full lg:w-1/2"
   >
     <WeatherBlockGeneral :weather="weather.list[0]" :town="town" :full="true" />
-    <WeatherBlockForecast :forecast="activeDay" />
+    <WeatherBlockForecast :forecast="groupForecast[activeDay]" />
     <div class="w-full">
       <swiper :space-between="12" :slidesPerView="'auto'">
         <swiper-slide
-          class="bg-gray-200 border border-gray-300 shadow-md p-3 w-24 rounded-lg"
+          class="bg-gray-100 border border-gray-300 shadow-md p-3 w-24 rounded-lg"
+          :class="{ 'bg-gray-300': activeDay === key }"
           v-for="(day, key) in groupForecast"
         >
           <div
             class="flex flex-col items-center justify-center cursor-pointer"
-            @click="activeDay = day"
+            @click="activeDay = key"
           >
-            <p class="font-bold">{{ mapDay[key] }}</p>
+            <p class="font-bold">{{ mapDay(key) }}</p>
             <img
               class="w-fit"
               :src="
@@ -46,20 +47,25 @@ const props = defineProps<{
 }>();
 const activeDay = ref(null);
 const weather = ref(null);
-const mapDay = {
-  "0": "Sun",
-  "1": "Mon",
-  "2": "Tue",
-  "3": "Wed",
-  "4": "Thu",
-  "5": "Fri",
-  "6": "Sat",
+const mapDay = (d) => {
+  const date = new Date(d);
+  const days = {
+    "0": "Sun",
+    "1": "Mon",
+    "2": "Tue",
+    "3": "Wed",
+    "4": "Thu",
+    "5": "Fri",
+    "6": "Sat",
+  };
+  const dayOfWeek = days[date.getDay()];
+  return dayOfWeek;
 };
 onMounted(async () => {
   const data = await weatherStore.getWeather(props.town, false);
   weather.value = data;
   const firstDayKey = Object.keys(groupForecast.value)[0];
-  activeDay.value = groupForecast.value[firstDayKey];
+  activeDay.value = firstDayKey;
 });
 const dayMiddleIcon = computed(() => (day: string[]) => {
   return day[(day.length / 2) | 0];
@@ -86,15 +92,18 @@ const dayRangeTemp = computed(() => (day) => {
 const groupForecast = computed(() => {
   if (!weather.value) return;
   const grouped = {};
+
   weather.value.list.forEach((f) => {
     const date = new Date(f.dt * 1000);
-    const dayIndex = date.getDay();
-    if (!grouped[dayIndex]) {
-      grouped[dayIndex] = [f];
+    const day = date.toISOString().split("T")[0]; // Pobieramy tylko datę, usuwając czas
+
+    if (!grouped[day]) {
+      grouped[day] = [f];
     } else {
-      grouped[dayIndex].push(f);
+      grouped[day].push(f);
     }
   });
+  console.log(grouped);
   return grouped;
 });
 
@@ -110,7 +119,7 @@ watch(
 <style  lang="scss">
 .weather__main {
   .swiper-slide {
-    width: fit-content !important;
+    width: 100px !important;
   }
 }
 </style>
