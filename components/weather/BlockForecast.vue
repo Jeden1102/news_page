@@ -46,7 +46,6 @@ const series = ref([
   },
 ]);
 const updateChart = () => {
-  //generate array of random numbers of length 10
   const data = dt_tempArray;
   options.value = {
     ...options.value,

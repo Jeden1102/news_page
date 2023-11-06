@@ -1,5 +1,7 @@
 <template>
-  <div class="w-full bg-gray-100 p-4 flex flex-col gap-4">
+  <div
+    class="w-full bg-gray-100 p-4 flex flex-col gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+  >
     <div class="flex flex-col">
       <h3 class="heading-styled mb-4">Mega news</h3>
       <p class="text-gray-600">
@@ -33,10 +35,10 @@
     <div class="flex flex-col">
       <h3 class="heading-styled mb-4">Social network</h3>
       <a href="">
-        <Icon name="mdi:instagram" class="text-3xl" />
+        <Icon name="mdi:instagram" class="text-3xl text-gray-700" />
       </a>
       <a href="">
-        <Icon name="mdi:facebook-box" class="text-3xl" />
+        <Icon name="mdi:facebook-box" class="text-3xl text-gray-700" />
       </a>
     </div>
   </div>

@@ -9,7 +9,9 @@
       <swiper-slide
         class="p-4 rounded-md bg-primary text-white cursor-pointer hover:bg-red-450"
         v-for="category in categoriesStore.categories"
-        >#{{ category }}</swiper-slide
+        ><NuxtLink :to="'/articles/' + category">
+          #{{ category }}
+        </NuxtLink></swiper-slide
       >
     </swiper>
   </div>
