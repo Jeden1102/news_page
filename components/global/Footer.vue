@@ -29,7 +29,9 @@
     <div class="flex flex-col">
       <h3 class="heading-styled mb-4">Categories</h3>
       <template v-for="category in footerCategories">
-        <a class="my-1" href="">{{ category }}</a>
+        <NuxtLink clasm="my-1" :to="'/articles/' + category">
+          {{ category }}
+        </NuxtLink>
       </template>
     </div>
     <div class="flex flex-col">
@@ -50,7 +52,7 @@ import { useCategoriesStore } from "../../store/categories";
 const categoriesStore = useCategoriesStore();
 const footerCategories = computed(() => {
   if (!categoriesStore.categories) return;
-  return categoriesStore.categories.splice(0, 6);
+  return categoriesStore.categories.slice(0, 6);
 });
 </script>
 

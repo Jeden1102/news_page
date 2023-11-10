@@ -3,7 +3,7 @@
     <ClientOnly>
       <apexchart
         :key="series"
-        height="400"
+        height="230"
         width="100%"
         :options="options"
         :series="series"
@@ -12,7 +12,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { defineProps, watch } from "vue";
 const props = defineProps<{
   forecast: object[];
 }>();
@@ -27,6 +27,12 @@ const options = ref({
     },
   },
 });
+watch(
+  () => props.forecast,
+  () => {
+    updateChart();
+  }
+);
 const dt_txtArray = computed(() => {
   return props.forecast.map((obj) => {
     const dt_txt = obj.dt_txt.split(" ")[1].slice(0, -3);
@@ -47,6 +53,8 @@ const series = ref([
 ]);
 const updateChart = () => {
   const data = dt_tempArray;
+  console.log("TEERRAE");
+  console.log("tutaj", dt_txtArray.value);
   options.value = {
     ...options.value,
     xaxis: {

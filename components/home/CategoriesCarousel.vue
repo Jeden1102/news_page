@@ -6,10 +6,11 @@
       navigation
       :modules="modules"
     >
-      <swiper-slide
-        class="p-4 rounded-md bg-primary text-white cursor-pointer hover:bg-red-450"
-        v-for="category in categoriesStore.categories"
-        ><NuxtLink :to="'/articles/' + category">
+      <swiper-slide v-for="category in categoriesStore.categories"
+        ><NuxtLink
+          class="block p-4 rounded-md bg-primary text-white cursor-pointer hover:bg-red-450"
+          :to="'/articles/' + category"
+        >
           #{{ category }}
         </NuxtLink></swiper-slide
       >

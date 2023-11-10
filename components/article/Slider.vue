@@ -6,6 +6,7 @@
       :space-between="20"
       navigation
       :modules="modules"
+      class="min-h-[400px]"
       :breakpoints="{
         '640': {
           slidesPerView: 2,
@@ -18,8 +19,11 @@
         },
       }"
     >
-      <swiper-slide v-for="n in news">
+      <swiper-slide v-if="!newsLoading" v-for="n in news">
         <ArticleTeaser :n="n" />
+      </swiper-slide>
+      <swiper-slide v-else v-for="n in 8">
+        <ArticleTeaser :n="n" :isLoading="true" />
       </swiper-slide>
     </swiper>
   </div>
@@ -36,9 +40,11 @@ const props = defineProps<{
 }>();
 const modules = [Navigation];
 const news = ref(null);
+const newsLoading = ref(true);
 onMounted(async () => {
-  const response = await axios.get(`api/search?category=${props.category}`);
+  const response = await axios.get(`/api/search?category=${props.category}`);
   news.value = response.data.data;
+  newsLoading.value = false;
 });
 </script>
 
@@ -53,7 +59,7 @@ onMounted(async () => {
     }
   }
   .swiper-wrapper {
-    @apply max-w-[400px] xl:max-w-[500px];
+    @apply min-h-[400px] max-w-[400px] xl:max-w-[500px];
     margin-top: -20px;
     padding-top: 50px;
   }

@@ -3,7 +3,12 @@
     v-if="weather"
     class="flex flex-col weather__main p-4 rounded-md text-black gap-6 md:p-6 bg-white mb-6 shadow-lg lg:mb-0 w-full lg:w-1/2"
   >
-    <WeatherBlockGeneral :weather="weather.list[0]" :town="town" :full="true" />
+    <WeatherBlockGeneral
+      :weather="weather.list[0]"
+      :town="town"
+      :full="true"
+      :isLoading="isLoading"
+    />
     <WeatherBlockForecast :forecast="groupForecast[activeDay]" />
     <div class="w-full">
       <swiper :space-between="12" :slidesPerView="'auto'">
@@ -15,8 +20,11 @@
           <div
             class="flex flex-col items-center justify-center cursor-pointer"
             @click="activeDay = key"
+            v-if="!isLoading"
           >
-            <p class="font-bold">{{ mapDay(key) }}</p>
+            <p class="font-bold">
+              {{ mapDay(key) }}
+            </p>
             <img
               class="w-fit"
               :src="
@@ -29,6 +37,17 @@
             <div class="flex justify-center gap-4 w-full">
               <span>{{ dayRangeTemp(day).min }}&deg;</span>
               <span class="font-bold">{{ dayRangeTemp(day).max }}&deg;</span>
+            </div>
+          </div>
+          <div
+            class="flex flex-col items-center justify-center cursor-pointer"
+            v-else
+          >
+            <p class="skeleton w-8 h-6"></p>
+            <div class="skeleton w-10 h-10 mt-2"></div>
+            <div class="flex justify-center gap-4 w-full mt-2">
+              <span class="skeleton w-8 h-8"></span>
+              <span class="skeleton w-8 h-8"></span>
             </div>
           </div>
         </swiper-slide>
@@ -47,6 +66,7 @@ const props = defineProps<{
 }>();
 const activeDay = ref(null);
 const weather = ref(null);
+const isLoading = ref(false);
 const mapDay = (d) => {
   const date = new Date(d);
   const days = {
@@ -103,15 +123,16 @@ const groupForecast = computed(() => {
       grouped[day].push(f);
     }
   });
-  console.log(grouped);
   return grouped;
 });
 
 watch(
   async () => props.town,
   async (first) => {
+    isLoading.value = true;
     const data = await weatherStore.getWeather(props.town, false);
     weather.value = data;
+    isLoading.value = false;
   }
 );
 </script>

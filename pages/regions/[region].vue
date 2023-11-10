@@ -1,16 +1,16 @@
 <template>
   <div class="flex gap-20 flex-col">
     <div class="flex gap-4 flex-wrap py-4 lg:py-8">
-      <div v-for="category in categoriesStore.categories">
+      <div v-for="region in regionsStore.regions">
         <NuxtLink
           class="hover:text-red-400"
-          :to="'/articles/' + category"
+          :to="'/regions/' + region.value"
           :class="{
             'font-bold relative pl-2 active hover:text-black cursor-auto':
-              category === route.params.category,
+              region.value === route.params.region,
           }"
         >
-          {{ category }}
+          {{ region.label }}
         </NuxtLink>
       </div>
       <div
@@ -22,32 +22,32 @@
         <div class="flex flex-col" v-else-if="!isLoading && news.length == 0">
           <h2 class="font-bold text-lg">No results.</h2>
           <p>
-            There where no results in <b>{{ route.params.category }}</b> found.
-            Try to change the category.
+            There where no results in <b>{{ route.params.region }}</b> found.
+            Try to change the region.
           </p>
         </div>
         <template v-else>
           <ArticleTeaser v-for="n in news" :n="n" :isLoading="isLoading" />
         </template>
       </div>
-      <div class="w-full">
-        <ArticleSlider category="sports" label="Sports news" />
-      </div>
+    </div>
+    <div class="w-full">
+      <ArticleSlider category="sports" label="Sports news" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useCategoriesStore } from "../../store/categories";
+import { useRegionsStore } from "../../store/regions";
 import { onMounted, ref } from "vue";
 import axios from "axios";
 const route = useRoute();
 const news = ref(null);
 const isLoading = ref(true);
-const categoriesStore = useCategoriesStore();
+const regionsStore = useRegionsStore();
 onMounted(async () => {
   const response = await axios.get(
-    `/api/search?category=${route.params.category}`
+    `/api/search?country=${route.params.region}`
   );
   isLoading.value = false;
   news.value = response.data.data;

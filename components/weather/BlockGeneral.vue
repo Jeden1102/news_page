@@ -4,7 +4,11 @@
     :class="{ 'flex-col sm:flex-row': full, 'items-center': !full }"
     v-if="weather && weather.weather"
   >
-    <div class="flex gap-2" :class="{ 'items-center gap-8': full }">
+    <div
+      class="flex gap-2"
+      :class="{ 'items-center gap-8': full }"
+      v-if="!isLoading"
+    >
       <div class="flex items-center gap-2 justify-center" v-if="full">
         <img
           class="w-fit"
@@ -29,7 +33,16 @@
         </p>
       </div>
     </div>
-
+    <div class="flex gap-2" :class="{ 'items-center gap-8': full }" v-else>
+      <div class="flex items-center gap-2 justify-center" v-if="full">
+        <div class="skeleton w-8 h-8"></div>
+        <h4 class="skeleton w-12 h-12"></h4>
+      </div>
+      <div class="flex flex-col gap-2">
+        <p class="skeleton w-20 h-4"></p>
+        <p class="skeleton w-20 h-4"></p>
+      </div>
+    </div>
     <div class="flex flex-col gap-2">
       <h5 class="text-xl font-bold md:text-2xl">{{ town }}</h5>
       <p>{{ getLocalTime.date }}</p>
@@ -44,6 +57,7 @@ const props = defineProps<{
   weather: object;
   town: string;
   full: boolean;
+  isLoading?: boolean;
 }>();
 const getLocalTime = computed(() => {
   if (!props.weather || !props.weather.weather) return;

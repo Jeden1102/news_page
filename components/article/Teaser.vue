@@ -39,7 +39,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   n: object;
-  isLoading: boolean;
+  isLoading?: boolean;
 }>();
 const formatDate = (dateString: string) => {
   const dateObject = new Date(dateString);
