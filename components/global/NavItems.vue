@@ -2,14 +2,17 @@
   <div
     class="flex flex-col justify-start gap-4 lg:flex-row lg:items-center h-full"
   >
-    <GlobalNavItem label="Categories" :children="categoriesStore.categories" />
     <GlobalNavItem
-      label="Regions"
+      :label="$t('categories')"
+      :children="categoriesStore.categories"
+    />
+    <GlobalNavItem
+      :label="$t('regions')"
       :children="regionsStore.regions"
       objectKey="label"
     />
-    <GlobalNavItem label="Contact us" url="/contact" />
-    <GlobalNavItem label="About" url="/about" />
+    <GlobalNavItem :label="$t('contact')" url="/contact" />
+    <GlobalNavItem :label="$t('aboutus')" url="/about" />
   </div>
 </template>
 

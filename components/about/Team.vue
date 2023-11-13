@@ -5,7 +5,7 @@
     >
       <div class="max-w-2xl">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Meet our leadership
+          {{ $t("team.leadership") }}
         </h2>
         <p class="mt-6 text-lg leading-8 text-gray-600">
           Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae
@@ -25,7 +25,7 @@
               >
                 {{ member.name }}
               </h3>
-              <p class="text-sm font-semibold leading-6 text-indigo-600">
+              <p class="text-sm font-semibold leading-6 text-red-400">
                 {{ member.position }}
               </p>
             </div>
@@ -36,12 +36,15 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 const teamMembers = [
-  { name: "Alice Johnson", position: "Manager" },
-  { name: "Bob Smith", position: "Developer" },
-  { name: "Eva Brown", position: "Designer" },
-  { name: "John Doe", position: "Marketing Specialist" },
-  { name: "Jane Doe", position: "CEO" },
-  { name: "Charlie White", position: "Manager" },
+  { name: "Alice Johnson", position: t("team.manager") },
+  { name: "Bob Smith", position: t("team.developer") },
+  { name: "Eva Brown", position: t("team.designer") },
+  { name: "John Doe", position: t("team.marketing") },
+  { name: "Jane Doe", position: t("team.ceo") },
+  { name: "Charlie White", position: t("team.manager") },
 ];
 </script>

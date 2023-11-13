@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 export const useIndexStore = defineStore("index", {
   state: () => {
-    return { lang: "", toggledMenu: "" };
+    return { lang: "en", toggledMenu: "" };
   },
   actions: {
     setLang(lang: string) {

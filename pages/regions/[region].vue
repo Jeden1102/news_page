@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="w-full">
-      <ArticleSlider category="sports" label="Sports news" />
+      <ArticleSlider category="sports" :label="$t('sports_news')" />
     </div>
   </div>
 </template>

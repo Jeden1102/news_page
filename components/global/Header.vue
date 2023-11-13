@@ -9,7 +9,7 @@
     </div>
     <div class="flex w-full gap-2 lg:w-fit">
       <button
-        @click="isMobileNavVisible = true"
+        @click="toggleMobileNav"
         class="bg-gray-100 rounded-lg w-fit p-2 mr-auto lg:hidden absolute left-4 top-6 md:static"
       >
         <Icon name="radix-icons:hamburger-menu" size="24px" />
@@ -40,12 +40,10 @@
         :options="options"
         :canClear="false"
         :canDeselect="false"
+        @change="setGlobalLocale"
       />
     </div>
-    <GlobalNavMobile
-      :visible="isMobileNavVisible"
-      @hide="isMobileNavVisible = false"
-    />
+    <GlobalNavMobile :visible="isMobileNavVisible" @hide="toggleMobileNav" />
   </div>
 </template>
 
@@ -53,9 +51,28 @@
 import axios from "axios";
 import Multiselect from "@vueform/multiselect";
 import { ref } from "vue";
+import { useIndexStore } from "../../store/index";
+const indexStore = useIndexStore();
 const runtimeConfig = useRuntimeConfig();
 const { locale } = useI18n();
 const isMobileNavVisible = ref(false);
+const toggleMobileNav = () => {
+  isMobileNavVisible.value = !isMobileNavVisible.value;
+  if (isMobileNavVisible.value) {
+    applyBodyOverflow("hidden");
+  } else {
+    applyBodyOverflow("visible");
+  }
+};
+const setGlobalLocale = (val: string) => {
+  indexStore.setLang(val);
+};
+const applyBodyOverflow = (overflow: string) => {
+  if (window.innerWidth > 1024) {
+    return;
+  }
+  document.body.style.overflow = overflow;
+};
 const getLanguages = async () => {
   const languages = await axios.get(
     `${runtimeConfig.public.NEWS_API_URL}/available/languages`

@@ -3,10 +3,10 @@
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
         <h2 class="text-base font-semibold leading-7 text-gray-900">
-          Personal Information
+          {{ $t("contact_page.form.heading") }}
         </h2>
         <p class="mt-1 text-sm leading-6 text-gray-600">
-          Use a permanent address where you can receive mail.
+          {{ $t("contact_page.form.subheading") }}
         </p>
 
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -14,7 +14,7 @@
             <label
               for="first-name"
               class="block text-sm font-medium leading-6 text-gray-900"
-              >First name</label
+              >{{ $t("contact_page.form.first_name") }}</label
             >
             <div class="mt-2">
               <input
@@ -31,7 +31,7 @@
             <label
               for="last-name"
               class="block text-sm font-medium leading-6 text-gray-900"
-              >Last name</label
+              >{{ $t("contact_page.form.last_name") }}</label
             >
             <div class="mt-2">
               <input
@@ -48,7 +48,7 @@
             <label
               for="email"
               class="block text-sm font-medium leading-6 text-gray-900"
-              >Email address</label
+              >{{ $t("contact_page.form.email") }}</label
             >
             <div class="mt-2">
               <input
@@ -64,7 +64,7 @@
             <label
               for="cover-photo"
               class="block text-sm font-medium leading-6 text-gray-900"
-              >Cover photo</label
+              >{{ $t("contact_page.form.photo") }}</label
             >
             <div
               class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10"
@@ -87,7 +87,7 @@
                     for="file-upload"
                     class="relative cursor-pointer rounded-md bg-white font-semibold text-red-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                   >
-                    <span>Upload a file</span>
+                    <span>{{ $t("contact_page.form.upload") }}</span>
                     <input
                       id="file-upload"
                       name="file-upload"
@@ -95,7 +95,7 @@
                       class="sr-only"
                     />
                   </label>
-                  <p class="pl-1">or drag and drop</p>
+                  <p class="pl-1">{{ $t("contact_page.form.drag") }}</p>
                 </div>
                 <p class="text-xs leading-5 text-gray-600">
                   PNG, JPG, GIF up to 10MB
@@ -112,21 +112,14 @@
         type="button"
         class="text-sm font-semibold leading-6 text-gray-900"
       >
-        Cancel
+        {{ $t("cancel") }}
       </button>
       <button
         type="submit"
         class="rounded-md bg-red-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
-        Save
+        {{ $t("save") }}
       </button>
     </div>
   </form>
 </template>
-
-<script>
-export default {};
-</script>
-
-<style lang="scss" scoped>
-</style>

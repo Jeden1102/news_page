@@ -26,12 +26,6 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 const testimontals = [
   {
-    companyImage: "workactions.svg",
-    personImage: "person.avif",
-    companyName: "Workcation",
-    personName: "Judith Black",
-  },
-  {
     companyImage: "netflix.png",
     personImage: "person.avif",
     companyName: "Netflix",

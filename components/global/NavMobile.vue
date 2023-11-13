@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="absolute left-0 top-0 bg-white w-full h-full p-4 flex flex-col gap-8 z-20"
+    class="absolute left-0 top-0 bg-white w-full h-full p-4 flex flex-col gap-8 z-20 overflow-y-auto"
     :class="{ 'is-visible': visible }"
   >
     <div class="flex justify-between">

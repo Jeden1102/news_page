@@ -13,7 +13,7 @@
       </p>
     </div>
     <div class="flex flex-col">
-      <h3 class="heading-styled mb-4">Newsletter</h3>
+      <h3 class="heading-styled mb-4">{{ $t("footer.newsletter") }}</h3>
       <div class="relative w-3/4">
         <input
           class="w-full p-3 rounded-md"
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="flex flex-col">
-      <h3 class="heading-styled mb-4">Categories</h3>
+      <h3 class="heading-styled mb-4">{{ $t("categories") }}</h3>
       <template v-for="category in footerCategories">
         <NuxtLink clasm="my-1" :to="'/articles/' + category">
           {{ category }}
@@ -35,7 +35,7 @@
       </template>
     </div>
     <div class="flex flex-col">
-      <h3 class="heading-styled mb-4">Social network</h3>
+      <h3 class="heading-styled mb-4">{{ $t("footer.social") }}</h3>
       <a href="">
         <Icon name="mdi:instagram" class="text-3xl text-gray-700" />
       </a>

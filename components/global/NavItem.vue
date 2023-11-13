@@ -6,7 +6,7 @@
       class="menu-item"
       :class="{ active: indexStore.toggledMenu === props.label }"
     >
-      <span> {{ props.label }} </span>
+      <span class="w-full"> {{ props.label }} </span>
       <Icon
         v-if="hasChildren"
         class="pb-2"

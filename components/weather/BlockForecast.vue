@@ -53,8 +53,6 @@ const series = ref([
 ]);
 const updateChart = () => {
   const data = dt_tempArray;
-  console.log("TEERRAE");
-  console.log("tutaj", dt_txtArray.value);
   options.value = {
     ...options.value,
     xaxis: {

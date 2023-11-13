@@ -24,7 +24,7 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:mx-0">
         <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-          About us
+          {{ $t("about.header") }}
         </h2>
         <p class="mt-6 text-lg leading-8 text-gray-300">
           Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
@@ -36,11 +36,16 @@
         <div
           class="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10"
         >
-          <a href="#stats">Stats <span aria-hidden="true">&rarr;</span></a>
-          <a href="#testimontals"
-            >Testimontals <span aria-hidden="true">&rarr;</span></a
+          <a href="#stats"
+            >{{ $t("about.stats") }} <span aria-hidden="true">&rarr;</span></a
           >
-          <a href="#team">Our team <span aria-hidden="true">&rarr;</span></a>
+          <a href="#testimontals"
+            >{{ $t("about.testimontals") }}
+            <span aria-hidden="true">&rarr;</span></a
+          >
+          <a href="#team"
+            >{{ $t("about.team") }} <span aria-hidden="true">&rarr;</span></a
+          >
         </div>
       </div>
     </div>
