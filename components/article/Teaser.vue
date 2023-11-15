@@ -1,6 +1,8 @@
 <template>
-  <div
+  <a
     class="teaser flex flex-col gap-2 shadow-d h-full p-3 rounded-md bg-gray-100"
+    :href="n.url"
+    target="_blank"
     v-if="!isLoading"
   >
     <img
@@ -25,7 +27,7 @@
         class="text-2xl cursor-pointer"
       />
     </div>
-  </div>
+  </a>
   <div
     class="w-full h-[350px] flex flex-col gap-2 shadow-d p-3 rounded-md bg-gray-50"
     v-else

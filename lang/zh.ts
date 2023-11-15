@@ -1,0 +1,40 @@
+export const zh = {
+  categories: "类别",
+  regions: "地区",
+  contact: "联系方式",
+  aboutus: "关于我们",
+  sports_news: "体育新闻",
+  political: "政治",
+  footer: {
+    newsletter: "通讯",
+    social: "社交媒体",
+  },
+  about: {
+    header: "关于我们",
+    stats: "统计数据",
+    testimontals: "推荐",
+    team: "我们的团队",
+    news: "每24小时新闻",
+    users: "每日用户",
+  },
+  team: {
+    leadership: "认识我们的领导",
+    manager: "经理",
+    ceo: "首席执行官",
+    developer: "开发者",
+    designer: "设计师",
+    marketing: "市场营销",
+  },
+  contact_page: {
+    form: {
+      heading: "随时与我们联系！",
+      subheading: "填写表格，与我们取得联系",
+      first_name: "名字",
+      last_name: "姓氏",
+      email: "电子邮件地址",
+      photo: "封面照片",
+      upload: "上传文件",
+      drag: "或拖放文件",
+    },
+  },
+};

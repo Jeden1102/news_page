@@ -1,0 +1,40 @@
+export const nl = {
+  categories: "Kategorier",
+  regions: "Regioner",
+  contact: "Kontakt",
+  aboutus: "Om os",
+  sports_news: "Sportsnyheder",
+  political: "Politisk",
+  footer: {
+    newsletter: "Nyhedsbrev",
+    social: "Sociale medier",
+  },
+  about: {
+    header: "Om os",
+    stats: "Statistik",
+    testimontals: "Anbefalinger",
+    team: "Vores team",
+    news: "Nyheder hver 24. time",
+    users: "Brugere dagligt",
+  },
+  team: {
+    leadership: "Mød vores ledelse",
+    manager: "Manager",
+    ceo: "Administrerende direktør",
+    developer: "Udvikler",
+    designer: "Designer",
+    marketing: "Markedsføring",
+  },
+  contact_page: {
+    form: {
+      heading: "Føl dig fri til at kontakte os!",
+      subheading: "Udfyld formularen og kom i kontakt",
+      first_name: "Fornavn",
+      last_name: "Efternavn",
+      email: "Email-adresse",
+      photo: "Omslagsfoto",
+      upload: "Overfør en fil",
+      drag: "eller træk og slip",
+    },
+  },
+};

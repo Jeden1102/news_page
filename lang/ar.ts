@@ -1,0 +1,40 @@
+export const ar = {
+  categories: "التصنيفات",
+  regions: "المناطق",
+  contact: "اتصل بنا",
+  aboutus: "حولنا",
+  sports_news: "أخبار الرياضة",
+  political: "سياسي",
+  footer: {
+    newsletter: "النشرة الإخبارية",
+    social: "وسائل التواصل الاجتماعي",
+  },
+  about: {
+    header: "من نحن",
+    stats: "الإحصائيات",
+    testimontals: "الشهادات",
+    team: "فريقنا",
+    news: "أخبار كل 24 ساعة",
+    users: "المستخدمون يومياً",
+  },
+  team: {
+    leadership: "تعرف على قادتنا",
+    manager: "مدير",
+    ceo: "الرئيس التنفيذي",
+    developer: "مطوّر",
+    designer: "مصمم",
+    marketing: "تسويق",
+  },
+  contact_page: {
+    form: {
+      heading: "لا تتردد في الاتصال بنا!",
+      subheading: "املأ النموذج وتواصل معنا",
+      first_name: "الاسم الأول",
+      last_name: "الاسم الأخير",
+      email: "عنوان البريد الإلكتروني",
+      photo: "صورة الغلاف",
+      upload: "تحميل ملف",
+      drag: "أو اسحب وأفلت",
+    },
+  },
+};

@@ -1,3 +1,9 @@
+import { ar } from "./lang/ar";
+import { de } from "./lang/de";
+import { nl } from "./lang/nl";
+import { fi } from "./lang/fi";
+import { fr } from "./lang/fr";
+import { zh } from "./lang/zh";
 export default defineI18nConfig(() => ({
   legacy: false,
   locale: "en",
@@ -42,10 +48,11 @@ export default defineI18nConfig(() => ({
         },
       },
     },
-    fr: {
-      about: {
-        header: "test",
-      },
-    },
+    ar,
+    de,
+    nl,
+    fi,
+    fr,
+    zh,
   },
 }));

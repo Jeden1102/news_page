@@ -1,0 +1,40 @@
+export const de = {
+  categories: "Kategorien",
+  regions: "Regionen",
+  contact: "Kontakt",
+  aboutus: "Über uns",
+  sports_news: "Sportnachrichten",
+  political: "Politik",
+  footer: {
+    newsletter: "Newsletter",
+    social: "Soziale Medien",
+  },
+  about: {
+    header: "Über uns",
+    stats: "Statistiken",
+    testimontals: "Referenzen",
+    team: "Unser Team",
+    news: "Nachrichten alle 24 Stunden",
+    users: "Nutzer täglich",
+  },
+  team: {
+    leadership: "Lernen Sie unsere Führungskräfte kennen",
+    manager: "Manager",
+    ceo: "Geschäftsführer",
+    developer: "Entwickler",
+    designer: "Designer",
+    marketing: "Marketing",
+  },
+  contact_page: {
+    form: {
+      heading: "Zögern Sie nicht, uns zu kontaktieren!",
+      subheading: "Füllen Sie das Formular aus und treten Sie in Kontakt",
+      first_name: "Vorname",
+      last_name: "Nachname",
+      email: "E-Mail-Adresse",
+      photo: "Titelbild",
+      upload: "Datei hochladen",
+      drag: "oder ziehen Sie sie hierher",
+    },
+  },
+};

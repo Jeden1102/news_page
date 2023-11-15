@@ -4,6 +4,8 @@
       src="/team.webp"
       alt="Our team."
       class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
+      width="1300"
+      height="600"
     />
     <div
       class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"

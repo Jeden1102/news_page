@@ -33,6 +33,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useNewsStore } from "../../store/news";
+
 const modules = [Navigation, Pagination];
 const newsStore = useNewsStore();
 newsStore.getRecentNews();

@@ -31,7 +31,7 @@
   </div>
 </template>
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
   companyImage: string;
   personImage: string;
   companyName: string;

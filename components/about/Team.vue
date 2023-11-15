@@ -18,7 +18,14 @@
       >
         <li v-for="member in teamMembers">
           <div class="flex items-center gap-x-6">
-            <img class="h-16 w-16 rounded-full" src="person.avif" alt="" />
+            <img
+              width="64"
+              height="64"
+              alt="Team member"
+              loading="lazy"
+              class="h-16 w-16 rounded-full"
+              src="person.avif"
+            />
             <div>
               <h3
                 class="text-base font-semibold leading-7 tracking-tight text-gray-900"
@@ -26,7 +33,7 @@
                 {{ member.name }}
               </h3>
               <p class="text-sm font-semibold leading-6 text-red-400">
-                {{ member.position }}
+                {{ $t(member.position) }}
               </p>
             </div>
           </div>
@@ -40,11 +47,11 @@ import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
 const teamMembers = [
-  { name: "Alice Johnson", position: t("team.manager") },
-  { name: "Bob Smith", position: t("team.developer") },
-  { name: "Eva Brown", position: t("team.designer") },
-  { name: "John Doe", position: t("team.marketing") },
-  { name: "Jane Doe", position: t("team.ceo") },
-  { name: "Charlie White", position: t("team.manager") },
+  { name: "Alice Johnson", position: "team.manager" },
+  { name: "Bob Smith", position: "team.developer" },
+  { name: "Eva Brown", position: "team.designer" },
+  { name: "John Doe", position: "team.marketing" },
+  { name: "Jane Doe", position: "team.ceo" },
+  { name: "Charlie White", position: "team.manager" },
 ];
 </script>
