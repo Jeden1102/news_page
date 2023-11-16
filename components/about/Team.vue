@@ -43,9 +43,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
 const teamMembers = [
   { name: "Alice Johnson", position: "team.manager" },
   { name: "Bob Smith", position: "team.developer" },
