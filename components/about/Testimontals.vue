@@ -27,13 +27,13 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 const testimontals = [
   {
     companyImage: "netflix.png",
-    personImage: "person.avif",
+    personImage: "/person.avif",
     companyName: "Netflix",
     personName: "John Doe",
   },
   {
     companyImage: "google.png",
-    personImage: "person.avif",
+    personImage: "/person.avif",
     companyName: "Google",
     personName: "Mark Gracynski",
   },

@@ -24,7 +24,7 @@
               alt="Team member"
               loading="lazy"
               class="h-16 w-16 rounded-full"
-              src="person.avif"
+              src="/person.avif"
             />
             <div>
               <h3

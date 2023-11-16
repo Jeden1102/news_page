@@ -1,9 +1,9 @@
 <template>
   <a
     class="teaser flex flex-col gap-2 shadow-d h-full p-3 rounded-md bg-gray-100"
-    :href="n.url"
+    :href="!isLoading ? n.url : '#'"
     target="_blank"
-    v-if="!isLoading"
+    v-if="!isLoading && n"
   >
     <img
       :src="n.image"
@@ -39,8 +39,9 @@
 </template>
 
 <script setup lang="ts">
+import { ArticleInterface } from "../../interface";
 const props = defineProps<{
-  n: object;
+  n?: ArticleInterface;
   isLoading?: boolean;
 }>();
 const formatDate = (dateString: string) => {

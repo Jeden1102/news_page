@@ -19,11 +19,11 @@
         },
       }"
     >
-      <swiper-slide v-if="!newsLoading" v-for="n in news">
+      <swiper-slide v-if="!newsLoading && news" v-for="n in news">
         <ArticleTeaser :n="n" />
       </swiper-slide>
       <swiper-slide v-else v-for="n in 8">
-        <ArticleTeaser :n="n" :isLoading="true" />
+        <ArticleTeaser :isLoading="true" />
       </swiper-slide>
     </swiper>
   </div>
@@ -33,18 +33,30 @@
 import { ref, onMounted } from "vue";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import axios from "axios";
+import { ArticleInterface } from "../../interface";
 const props = defineProps<{
   category: string;
   label: string;
 }>();
 const modules = [Navigation];
-const news = ref(null);
+const news = ref<ArticleInterface[] | null>(null);
 const newsLoading = ref(true);
 onMounted(async () => {
-  const response = await axios.get(`/api/search?category=${props.category}`);
-  news.value = response.data.data;
-  newsLoading.value = false;
+  try {
+    const response = await useFetch(`/api/search?category=${props.category}`);
+
+    if (!response) {
+      throw new Error(`Network failed.`);
+    }
+    if (response.data && response.data.value) {
+      news.value = (response.data.value as any)?.data as ArticleInterface[];
+      newsLoading.value = false;
+    } else {
+      throw new Error("Response data or value is null");
+    }
+  } catch (error) {
+    console.error("Error during fetch:", error);
+  }
 });
 </script>
 
