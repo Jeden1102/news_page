@@ -15,6 +15,8 @@ export default defineI18nConfig(() => ({
       aboutus: "About",
       sports_news: "Sports news",
       political: "Political",
+      cancel: "Cancel",
+      save: "Save",
       footer: {
         newsletter: "Newsletter",
         social: "Social medias",
