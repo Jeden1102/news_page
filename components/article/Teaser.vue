@@ -3,7 +3,7 @@
     class="teaser flex flex-col gap-2 shadow-d h-full p-3 rounded-md bg-gray-100"
     :href="!isLoading ? n.url : '#'"
     target="_blank"
-    v-if="!isLoading && n"
+    v-if="!isLoading"
   >
     <img
       :src="n.image"
