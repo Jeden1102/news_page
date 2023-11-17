@@ -19,7 +19,7 @@
         },
       }"
     >
-      <swiper-slide v-if="!newsLoading && news" v-for="n in news">
+      <swiper-slide v-if="!newsLoading" v-for="n in news">
         <ArticleTeaser :n="n" />
       </swiper-slide>
       <swiper-slide v-else v-for="n in 8">
