@@ -1,25 +1,25 @@
 <template>
   <a
     class="teaser flex flex-col gap-2 shadow-d h-full p-3 rounded-md bg-gray-100"
-    :href="!isLoading ? n.url : '#'"
+    :href="!isLoading ? newsObject.url : '#'"
     target="_blank"
     v-if="!isLoading"
   >
     <img
-      :src="n.image"
+      :src="newsObject.image"
       alt="Article image"
       class="h-40 w-full object-cover rounded-xl"
     />
     <p class="font-light text-gray-600 my-2">
-      {{ n.description }}
+      {{ newsObject.description }}
     </p>
     <div
       class="flex bg-gray-200 py-2 px-4 rounded-md items-center gap-4 justify-between mt-auto"
     >
       <div class="flex flex-col">
-        <p class="font-bold">{{ n.author }}</p>
+        <p class="font-bold">{{ newsObject.author }}</p>
         <p class="font-light text-sm text-gray-700">
-          {{ formatDate(n.published) }}
+          {{ formatDate(newsObject.published) }}
         </p>
       </div>
       <Icon
@@ -44,11 +44,14 @@ const props = defineProps<{
   n?: ArticleInterface;
   isLoading?: boolean;
 }>();
-console.log(props.n, props.isLoading);
 const formatDate = (dateString: string) => {
   const dateObject = new Date(dateString);
   return `${dateObject.toLocaleDateString()} ${dateObject.toLocaleTimeString()}`;
 };
+const newsObject = computed(() => {
+  return props.n;
+});
+console.log(newsObject, props.isLoading);
 </script>
 
 <style lang="scss">
