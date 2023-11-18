@@ -17,7 +17,7 @@
         class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full"
       >
         <template v-if="isLoading">
-          <ArticleTeaser v-for="n in 10" :n="n" :isLoading="isLoading" />
+          <ArticleTeaserLoader v-for="n in 10" />
         </template>
         <div class="flex flex-col" v-else-if="!isLoading && news.length == 0">
           <h2 class="font-bold text-lg">No results.</h2>

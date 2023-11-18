@@ -20,10 +20,10 @@
       }"
     >
       <swiper-slide v-if="!newsLoading" v-for="n in news">
-        <ArticleTeaser :n="n" :isLoading="false" />
+        <ArticleTeaser :n="n" />
       </swiper-slide>
       <swiper-slide v-else v-for="n in 8">
-        <ArticleTeaser :isLoading="true" />
+        <ArticleTeaserLoader />
       </swiper-slide>
     </swiper>
   </div>
