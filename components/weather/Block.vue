@@ -21,7 +21,7 @@ const props = defineProps<{
   activeTown: string;
 }>();
 const activeTownRef = ref(props.activeTown);
-const setActiveTown = (town) => {
+const setActiveTown = (town: string) => {
   activeTownRef.value = town;
 };
 </script>

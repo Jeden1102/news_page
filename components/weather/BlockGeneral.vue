@@ -45,16 +45,17 @@
     </div>
     <div class="flex flex-col gap-2">
       <h5 class="text-xl font-bold md:text-2xl">{{ town }}</h5>
-      <p>{{ getLocalTime.date }}</p>
-      <p>{{ getLocalTime.time }}</p>
+      <p>{{ getLocalTime?.date }}</p>
+      <p>{{ getLocalTime?.time }}</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from "vue";
+import { Forecast } from "../../interface";
 const props = defineProps<{
-  weather: object;
+  weather: Forecast;
   town: string;
   full: boolean;
   isLoading?: boolean;

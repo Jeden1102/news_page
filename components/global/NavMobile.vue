@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { defineProps, defineEmits } from "vue";
-const props = defineProps({
+defineProps({
   visible: Boolean,
 });
 const emit = defineEmits(["hide"]);

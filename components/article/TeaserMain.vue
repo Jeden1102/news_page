@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex h-full shadow-md md:w-full rounded-md">
+  <div v-if="n" class="relative flex h-full shadow-md md:w-full rounded-md">
     <object
       class="w-full h-60 object-cover rounded-md lg:h-96"
       :data="n.image"
@@ -17,8 +17,9 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  n: object;
+import { ArticleInterface } from "~/interface";
+defineProps<{
+  n: ArticleInterface;
 }>();
 </script>
 <style lang="scss" scoped>

@@ -3,5 +3,6 @@ export interface ArticleInterface {
   image: string;
   description: string;
   author: string;
+  title: string;
   published: string;
 }

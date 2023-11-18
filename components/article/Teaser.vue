@@ -1,6 +1,7 @@
 <template>
   <a
     class="teaser flex flex-col gap-2 shadow-d h-full p-3 rounded-md bg-gray-100"
+    v-if="n"
     :href="n.url"
     target="_blank"
   >
