@@ -44,6 +44,7 @@ const props = defineProps<{
   n?: ArticleInterface;
   isLoading?: boolean;
 }>();
+console.log(props.n, props.isLoading);
 const formatDate = (dateString: string) => {
   const dateObject = new Date(dateString);
   return `${dateObject.toLocaleDateString()} ${dateObject.toLocaleTimeString()}`;
