@@ -5,10 +5,16 @@
     :href="n.url"
     target="_blank"
   >
-    <img
+    <nuxt-img
+      quality="80"
+      format="webp"
       :src="n.image"
       alt="Article image"
       class="h-40 w-full object-cover rounded-xl"
+      width="560"
+      height="160"
+      loading="lazy"
+      sizes="100vw sm:50vw md:400px"
     />
     <p class="font-light text-gray-600 my-2">
       {{ n.description }}

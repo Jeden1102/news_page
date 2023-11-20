@@ -1,5 +1,5 @@
 <template>
-  <div class="categories-carousel bg-gray-100 p-3 rounded-md mx-auto">
+  <div class="categories-carousel bg-gray-50 p-3 rounded-md mx-auto">
     <swiper
       :space-between="12"
       :slidesPerView="'auto'"
@@ -8,7 +8,7 @@
     >
       <swiper-slide v-for="category in categoriesStore.categories"
         ><NuxtLink
-          class="block p-4 rounded-md bg-primary text-white cursor-pointer hover:bg-red-450"
+          class="block p-4 rounded-md bg-red-600 text-white cursor-pointer hover:bg-red-600 font-bold"
           :to="'/articles/' + category"
         >
           #{{ category }}
@@ -24,6 +24,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 // Import Swiper styles
 import { useCategoriesStore } from "../../store/categories";
+
 const categoriesStore = useCategoriesStore();
 const modules = [Navigation];
 </script>

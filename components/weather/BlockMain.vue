@@ -25,8 +25,14 @@
             <p class="font-bold">
               {{ mapDay(key) }}
             </p>
-            <img
+            <nuxt-img
+              quality="80"
+              format="webp"
               class="w-fit"
+              alt="Weather icon"
+              loading="lazy"
+              width="50"
+              height="50"
               :src="
                 'https://openweathermap.org/img/wn/' +
                 dayMiddleIcon(day).weather[0].icon +

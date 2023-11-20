@@ -1,6 +1,12 @@
 <template>
   <div class="mx-auto max-w-2xl lg:max-w-4xl">
-    <img class="mx-auto h-12" :src="companyImage" alt="" />
+    <nuxt-img
+      quality="80"
+      format="webp"
+      class="mx-auto h-12"
+      :src="companyImage"
+      alt=""
+    />
     <figure class="mt-10">
       <blockquote
         class="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9"
@@ -12,7 +18,13 @@
         </p>
       </blockquote>
       <figcaption class="mt-10">
-        <img class="mx-auto h-10 w-10 rounded-full" :src="personImage" alt="" />
+        <nuxt-img
+          quality="80"
+          format="webp"
+          class="mx-auto h-10 w-10 rounded-full"
+          :src="personImage"
+          alt="Member image."
+        />
         <div class="mt-4 flex items-center justify-center space-x-3 text-base">
           <div class="font-semibold text-gray-900">{{ personName }}</div>
           <svg

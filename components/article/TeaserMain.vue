@@ -4,8 +4,17 @@
       class="w-full h-60 object-cover rounded-md lg:h-96"
       :data="n.image"
       type="image/png"
+      aria-label="Article image."
     >
-      <img src="/people.jpg" alt="Stack Overflow logo and icons and such" />
+      <nuxt-img
+        quality="80"
+        format="webp"
+        width="500"
+        height="400"
+        src="/people.jpg"
+        alt="Article image."
+        loading="lazy"
+      />
     </object>
     <div
       class="flex flex-col bg-gray-50 mt-full absolute bottom-3 w-11/12 mx-auto overlay left-1/2 p-4 rounded-lg"

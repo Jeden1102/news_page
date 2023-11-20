@@ -1,8 +1,8 @@
 <template>
-  <div
+  <footer
     class="w-full bg-gray-100 p-4 flex flex-col gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
   >
-    <div class="flex flex-col">
+    <section class="flex flex-col">
       <h3 class="heading-styled mb-4">Mega news</h3>
       <p class="text-gray-600">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
@@ -11,8 +11,8 @@
         architecto quos! Dolorem, neque suscipit. Incidunt enim amet adipisci
         repellendus architecto!
       </p>
-    </div>
-    <div class="flex flex-col">
+    </section>
+    <section class="flex flex-col">
       <h3 class="heading-styled mb-4">{{ $t("footer.newsletter") }}</h3>
       <div class="relative w-3/4">
         <input
@@ -25,30 +25,31 @@
           class="absolute top-1/2 right-4 translate-y-[-50%]"
         />
       </div>
-    </div>
-    <div class="flex flex-col">
+    </section>
+    <section class="flex flex-col">
       <h3 class="heading-styled mb-4">{{ $t("categories") }}</h3>
       <template v-for="category in footerCategories">
         <NuxtLink clasm="my-1" :to="'/articles/' + category">
           {{ category }}
         </NuxtLink>
       </template>
-    </div>
-    <div class="flex flex-col">
+    </section>
+    <section class="flex flex-col">
       <h3 class="heading-styled mb-4">{{ $t("footer.social") }}</h3>
-      <a href="">
+      <a aria-label="Checkout our instagram." href="">
         <Icon name="mdi:instagram" class="text-3xl text-gray-700" />
       </a>
-      <a href="">
+      <a aria-label="Checkout our facebook." href="">
         <Icon name="mdi:facebook-box" class="text-3xl text-gray-700" />
       </a>
-    </div>
-  </div>
+    </section>
+  </footer>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
 import { useCategoriesStore } from "../../store/categories";
+
 const categoriesStore = useCategoriesStore();
 const footerCategories = computed(() => {
   if (!categoriesStore.categories) return;

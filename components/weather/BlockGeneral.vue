@@ -10,17 +10,23 @@
       v-if="!isLoading"
     >
       <div class="flex items-center gap-2 justify-center" v-if="full">
-        <img
+        <nuxt-img
+          quality="80"
+          format="webp"
           class="w-fit"
+          width="50"
+          height="50"
+          loading="lazy"
+          alt="Weather icon."
           :src="
             'https://openweathermap.org/img/wn/' +
             weather.weather[0].icon +
             '.png'
           "
         />
-        <h4 class="text-3xl font-bold">
+        <p class="text-3xl font-bold">
           {{ weather.main.temp.toFixed() }}&deg;C
-        </h4>
+        </p>
       </div>
       <div class="flex flex-col gap-2">
         <p class="flex gap-2">
@@ -44,7 +50,7 @@
       </div>
     </div>
     <div class="flex flex-col gap-2">
-      <h5 class="text-xl font-bold md:text-2xl">{{ town }}</h5>
+      <p class="text-xl font-bold md:text-2xl">{{ town }}</p>
       <p>{{ getLocalTime?.date }}</p>
       <p>{{ getLocalTime?.time }}</p>
     </div>
@@ -54,6 +60,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { Forecast } from "../../interface";
+
 const props = defineProps<{
   weather: Forecast;
   town: string;
@@ -78,5 +85,3 @@ const getLocalTime = computed(() => {
   };
 });
 </script>
-
-<style scoped></style>

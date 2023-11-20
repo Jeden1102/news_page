@@ -1,5 +1,5 @@
 <template>
-  <div class="slider mb-8 mx-auto">
+  <section class="slider mb-8 mx-auto">
     <h2 class="text-2xl relative mb-12">{{ label }}</h2>
     <swiper
       :slides-per-view="1"
@@ -26,7 +26,7 @@
         <ArticleTeaserLoader />
       </swiper-slide>
     </swiper>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -54,9 +54,7 @@ onMounted(async () => {
     } else {
       throw new Error("Response data or value is null");
     }
-  } catch (error) {
-    console.error("Error during fetch:", error);
-  }
+  } catch (error) {}
 });
 </script>
 

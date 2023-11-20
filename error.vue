@@ -3,7 +3,14 @@
     <div class="py-2 mx-auto px-2 max-w-[1400px]">
       <GlobalHeader />
       <div class="py-12 flex flex-col gap-8 justify-center items-center">
-        <img class="w-full h-72" src="/404.svg" alt="" />
+        <nuxt-img
+          quality="80"
+          format="webp"
+          class="w-full h-72"
+          sizes="100vw sm:50vw md:400px"
+          src="/404.svg"
+          alt="Error image."
+        />
         <h1 class="text-3xl">Page not found</h1>
         <p>Are you lost?</p>
         <NuxtLink

@@ -7,24 +7,29 @@
   >
     <WeatherBlockGeneral :weather="weather" :town="town" :full="false" />
     <div class="flex items-center gap-2 justify-center">
-      <img
+      <nuxt-img
+        quality="80"
+        format="webp"
         class="w-fit"
+        alt="Weather icon"
+        loading="lazy"
+        width="50"
+        height="50"
         :src="
           'https://openweathermap.org/img/wn/' +
           weather.weather[0].icon +
           '.png'
         "
       />
-      <h4 class="text-3xl font-bold">
-        {{ weather.main.temp.toFixed() }}&deg;C
-      </h4>
+      <p class="text-3xl font-bold">{{ weather.main.temp.toFixed() }}&deg;C</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, defineProps, ref } from "vue";
-import { useWeatherStore } from "../../store/weather.ts";
+import { useWeatherStore } from "../../store/weather";
+
 const weatherStore = useWeatherStore();
 const props = defineProps<{
   town: string;
@@ -40,17 +45,9 @@ onMounted(async () => {
 <style scoped lang="scss">
 .weather {
   &__teaser {
-    background: #1488cc; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to right,
-      #2b32b2,
-      #1488cc
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-      to right,
-      #2b32b2,
-      #1488cc
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #1488cc;
+    background: -webkit-linear-gradient(to right, #2b32b2, #1488cc);
+    background: linear-gradient(to right, #2b32b2, #1488cc);
 
     &.active {
       @apply border-blue-600;

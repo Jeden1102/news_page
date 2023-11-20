@@ -1,6 +1,8 @@
 <template>
   <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 my-8">
-    <img
+    <nuxt-img
+      quality="80"
+      format="webp"
       src="/team.webp"
       alt="Our team."
       class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"

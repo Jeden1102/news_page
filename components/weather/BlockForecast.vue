@@ -36,7 +36,6 @@ watch(
 );
 const dt_txtArray = computed(() => {
   return props.forecast.map((obj) => {
-    console.log(obj);
     const dt_txt = obj.dt_txt.split(" ")[1].slice(0, -3);
     return dt_txt;
   });

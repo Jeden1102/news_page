@@ -19,8 +19,9 @@
         <template v-if="isLoading">
           <ArticleTeaserLoader v-for="n in 10" />
         </template>
-        <div class="flex flex-col" v-else-if="!isLoading && news.length == 0">
+        <div class="flex flex-col" v-else-if="!isLoading && !news">
           <h2 class="font-bold text-lg">No results.</h2>
+          {{ news }}
           <p>
             There where no results in <b>{{ route.params.category }}</b> found.
             Try to change the category.
@@ -40,9 +41,10 @@
 <script setup lang="ts">
 import { useCategoriesStore } from "../../store/categories";
 import { onMounted, ref } from "vue";
+import { ArticleInterface } from "~/interface";
 import axios from "axios";
 const route = useRoute();
-const news = ref(null);
+const news = ref<ArticleInterface[] | null>(null);
 const isLoading = ref(true);
 const categoriesStore = useCategoriesStore();
 onMounted(async () => {
@@ -50,7 +52,7 @@ onMounted(async () => {
     `/api/search?category=${route.params.category}`
   );
   isLoading.value = false;
-  news.value = response.data.data;
+  news.value = response.data.data as ArticleInterface[];
 });
 </script>
 

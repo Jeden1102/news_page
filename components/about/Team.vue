@@ -18,7 +18,9 @@
       >
         <li v-for="member in teamMembers">
           <div class="flex items-center gap-x-6">
-            <img
+            <nuxt-img
+              quality="80"
+              format="webp"
               width="64"
               height="64"
               alt="Team member"

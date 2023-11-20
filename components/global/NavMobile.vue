@@ -4,10 +4,16 @@
     :class="{ 'is-visible': visible }"
   >
     <div class="flex justify-between">
-      <NuxtLink to="/" class="text-3xl">
-        <span class="text-red-400 font-bold">MEGA</span>.news
-      </NuxtLink>
-      <button @click="$emit('hide')" class="bg-gray-100 rounded-lg w-fit p-2">
+      <h1>
+        <NuxtLink to="/" class="text-3xl">
+          <span class="text-red-400 font-bold">MEGA</span>.news
+        </NuxtLink>
+      </h1>
+      <button
+        title="Close mobile nav."
+        @click="$emit('hide')"
+        class="bg-gray-100 rounded-lg w-fit p-2"
+      >
         <Icon name="ic:twotone-close" size="24px" />
       </button>
     </div>

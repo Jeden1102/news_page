@@ -16,6 +16,7 @@
 
 <script setup lang="ts">
 import { defineProps, ref } from "vue";
+
 const props = defineProps<{
   towns: string[];
   activeTown: string;

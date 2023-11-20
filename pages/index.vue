@@ -10,6 +10,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+
 const towns = ["Warsaw", "New York", "Paris", "Moskow"];
 const activeTown = ref(0);
 </script>

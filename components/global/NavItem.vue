@@ -3,6 +3,7 @@
     <button
       @click="indexStore.setToggledMenu(props.label)"
       v-if="hasChildren"
+      title="Toggle submenu."
       class="menu-item"
       :class="{ active: indexStore.toggledMenu === props.label }"
     >
@@ -25,7 +26,7 @@
         <template v-if="objectKey">
           <NuxtLink
             v-for="child in props.children"
-            class="menu-item pl-3 text-gray-500 hover:text-gray-700"
+            class="menu-item pl-3 py-1 text-gray-500 hover:text-gray-700"
             :to="'/regions/' + child.value"
           >
             <span>{{ child[objectKey] }} </span>
@@ -34,7 +35,7 @@
         <template v-else>
           <NuxtLink
             v-for="child in props.children"
-            class="menu-item pl-3 text-gray-500 hover:text-gray-700"
+            class="menu-item pl-3 py-1 text-gray-500 hover:text-gray-700"
             :to="'/articles/' + child"
           >
             <span>{{ child }}</span>

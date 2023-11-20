@@ -19,7 +19,7 @@
         <template v-if="isLoading">
           <ArticleTeaserLoader v-for="n in 10" />
         </template>
-        <div class="flex flex-col" v-else-if="!isLoading && news.length == 0">
+        <div class="flex flex-col" v-else-if="!isLoading && !news">
           <h2 class="font-bold text-lg">No results.</h2>
           <p>
             There where no results in <b>{{ route.params.region }}</b> found.
@@ -40,9 +40,10 @@
 <script setup lang="ts">
 import { useRegionsStore } from "../../store/regions";
 import { onMounted, ref } from "vue";
+import { ArticleInterface } from "~/interface";
 import axios from "axios";
 const route = useRoute();
-const news = ref(null);
+const news = ref<ArticleInterface[] | null>(null);
 const isLoading = ref(true);
 const regionsStore = useRegionsStore();
 onMounted(async () => {

@@ -5,5 +5,12 @@
     <GlobalFooter />
   </div>
 </template>
-<style lang="scss">
-</style>
+<script setup lang="ts">
+useHead({
+  title: "Mega News",
+  meta: [{ name: "description", content: "Best news in the world." }],
+  htmlAttrs: {
+    lang: "en",
+  },
+});
+</script>
