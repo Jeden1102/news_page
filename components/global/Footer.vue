@@ -36,10 +36,10 @@
     </section>
     <section class="flex flex-col">
       <h3 class="heading-styled mb-4">{{ $t("footer.social") }}</h3>
-      <a aria-label="Checkout our instagram." href="">
+      <a aria-label="Checkout our instagram." href="#">
         <Icon name="mdi:instagram" class="text-3xl text-gray-700" />
       </a>
-      <a aria-label="Checkout our facebook." href="">
+      <a aria-label="Checkout our facebook." href="#">
         <Icon name="mdi:facebook-box" class="text-3xl text-gray-700" />
       </a>
     </section>
